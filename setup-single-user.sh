@@ -4,8 +4,9 @@ github_project_name=$2
 bitbucket_username=$3
 bitbucket_project_name=$4
 mirror_script_path=$(pwd)/$1/mirror-$2.sh
-clone_path=$(pwd)/$1/$2
-mkdir -p $clone_path
+user_path=$(pwd)/$1/$2
+clone_path=$user_path/$2
+mkdir -p $user_path
 
 # Mirroring script
 cat << EOF > $mirror_script_path
@@ -19,5 +20,5 @@ EOF
 # crontab file
 cat << EOF | crontab -
 MAILTO=""
-*/5 * * * * $mirror_script_path >$(pwd)/$1/mirror-log-$2 2>&1
+*/5 * * * * $mirror_script_path >$user_path/mirror-log-$2 2>&1
 EOF
