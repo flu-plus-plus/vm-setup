@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-current_dir_path=$0/..
+current_dir_path=$(dirname $0)
 # Clear the crontab
 bash $current_dir_path/clear-crontab.sh
 # format: setup-single-user.sh github-username github-project bitbucket-username bitbucket-project
