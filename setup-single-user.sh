@@ -18,7 +18,5 @@ git pull && git push --mirror git@bitbucket.org:$3/$4.git
 EOF
 
 # crontab file
-cat << EOF | crontab -
-MAILTO=""
-*/5 * * * * $mirror_script_path >$user_path/mirror-log-$2 2>&1
-EOF
+cron_line="*/5 * * * * $mirror_script_path >$user_path/mirror-log-$2 2>&1"
+(crontab -l; echo "$cron_line") | crontab -
