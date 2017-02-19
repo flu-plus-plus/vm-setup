@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Initialize some variables
 github_username=$1
 github_project_name=$2
