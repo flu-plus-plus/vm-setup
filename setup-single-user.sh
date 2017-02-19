@@ -18,6 +18,7 @@ fi
 cd $clone_path
 git pull && git push --mirror git@bitbucket.org:$3/$4.git
 EOF
+chmod +x $mirror_script_path
 
 # crontab file
 cron_line="*/5 * * * * $mirror_script_path >$user_path/mirror-log-$2 2>&1"
