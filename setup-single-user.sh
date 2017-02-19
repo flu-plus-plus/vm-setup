@@ -4,7 +4,7 @@ github_project_name=$2
 bitbucket_username=$3
 bitbucket_project_name=$4
 mirror_script_path=$(pwd)/$1/mirror-$2.sh
-user_path=$(pwd)/$1/$2
+user_path=$(pwd)/$1
 clone_path=$user_path/$2
 mkdir -p $user_path
 
