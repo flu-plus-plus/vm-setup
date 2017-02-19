@@ -1,15 +1,9 @@
-# Mirroring script
-cat << EOF > /home/student/mirror.sh
-cd ~
-if [ ! -d "bachelorproef" ]; then
-  git clone https://github.com/flu-plus-plus/bachelorproef
-fi
-cd ~/bachelorproef
-git pull && git push --mirror git@bitbucket.org:flu-plus-plus/bachelorproef.git
-EOF
+#!/usr/bin/env bash
 
-# crontab file
-cat << EOF | crontab -
-MAILTO=""
-*/5 * * * * /home/student/mirror.sh >/home/student/mirror-log 2>&1
-EOF
+current_dir_path=$0/..
+# Clear the crontab
+bash $current_dir_path/clear-crontab.sh
+# format: setup-single-user.sh github-username github-project bitbucket-username bitbucket-project
+bash $current_dir_path/setup-single-user.sh flu-plus-plus bachelorproef flu-plus-plus bachelorproef
+bash $current_dir_path/setup-single-user.sh jonathanvdc bachelorproef jonathanvdc bachelorproef
+bash $current_dir_path/setup-single-user.sh lynn bachelorproef lynnvh bachelorproef
