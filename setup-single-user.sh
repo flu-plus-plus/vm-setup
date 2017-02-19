@@ -12,6 +12,7 @@ mkdir -p $user_path
 
 # Mirroring script
 cat << EOF > $mirror_script_path
+cd $user_path
 if [ ! -d "$clone_path" ]; then
   git clone https://github.com/$1/$2
 fi
