@@ -14,7 +14,7 @@ mkdir -p $user_path
 cat << EOF > $mirror_script_path
 cd $user_path
 if [ ! -d "$clone_path" ]; then
-  git clone https://github.com/$1/$2
+  git clone --mirror https://github.com/$1/$2
 fi
 cd $clone_path
 git pull && git push --mirror git@bitbucket.org:$3/$4.git
