@@ -17,7 +17,7 @@ if [ ! -d "$clone_path" ]; then
   git clone --mirror https://github.com/$1/$2
 fi
 cd $clone_path
-git pull && git push --mirror git@bitbucket.org:$3/$4.git
+git fetch --prune && git push --mirror git@bitbucket.org:$3/$4.git
 EOF
 chmod +x $mirror_script_path
 
